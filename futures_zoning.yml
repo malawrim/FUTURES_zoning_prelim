@@ -1,0 +1,28 @@
+# A conda environment for FUTURES - zoning prelim.
+# no longer applicable since you can't run GRASS with conda (yet)
+#
+# Usage:
+#   $ conda env create --file=Documents\GitHub\FUTURES_zoning_prelim\futures_zoning.yml
+#   $ conda activate futures_zoning
+# or to update - after activating call
+#   $ conda env update --file=Documents\GitHub\FUTURES_zoning_prelim\futures_zoning.yml
+
+name: futures_zoning
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.9.5
+  - numpy
+  - pandas
+  - notebook
+  - jupyterlab
+  - matplotlib
+
+  # spatial packages
+  - gdal
+  - rasterio
+  - geopandas
+  - scikit-learn
+  - scipy
