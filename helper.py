@@ -1,4 +1,12 @@
 #!usr/bin/env python3
+#
+##############################################################################
+# AUTHOR(S):    Anna Petrasova (kratochanna gmail.com)
+#
+# PURPOSE: Helper functions to clean up Jupyter Notebook
+#          - initializes GRASS environment
+#          - displays GRASS maps staticly or interactively
+##############################################################################
 
 import os
 import sys
