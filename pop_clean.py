@@ -1,12 +1,15 @@
 #!usr/bin/env python3
 ########################################
+# PURPOSE:
+#       Process population data for usage in FUTURES simulation (DEMAND submodule)
+#       Exports two .csv files with historical population trend and population projections
 # USAGE:
 #       python pop_clean.py
 #       --sim_start [start year of simulation]
 #       --sim_end [end year of simulation]
-#       --str-list [string of counties to be included separated by comma]
+#       --study_area [string of counties to be included separated by comma]
 #       --wd [working directory, location of population inputs and outputs]
-#       ex: python pop_clean.py --sim_start 2012 --sim_end 2021 --str-list "37,63,101,105,125,135,183" --wd "D:\\Zoning_Development\\input_data"
+#       ex: python pop_clean.py --sim_start 2012 --sim_end 2021 --study_area "37,63,101,105,125,135,183" --wd "D:\\Zoning_Development\\input_data"
 # ASSUMPTIONS:
 #       Population and counties located in North Carolina (FIPS = 37)
 #       NLCD years based on data availability in November, 2023
@@ -31,14 +34,14 @@ parser = argparse.ArgumentParser()
 # Add an argument for the list of strings
 parser.add_argument("--sim_start", type=int)
 parser.add_argument("--sim_end", type=int)
-parser.add_argument("--str-list", type=list_of_int)
+parser.add_argument("--study_area", type=list_of_int)
 parser.add_argument("--wd", type=str)
 
 # Parse the command-line arguments
 args = parser.parse_args()
 
 # save arguments
-counties = args.str_list
+counties = args.study_area
 sim_start = args.sim_start
 sim_end = args.sim_end
 wd = args.wd
