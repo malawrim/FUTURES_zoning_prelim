@@ -2,10 +2,10 @@
 #
 ##############################################################################
 # AUTHOR(S):    Anna Petrasova
-#               adapted from  FUTURES_v3 case study validation.ipynb. Accessed here,
+#               Adapted from  FUTURES_v3 case study validation.ipynb. Accessed here:
 #               https://colab.research.google.com/drive/1mTEJanqihKwHAAnjhQpfegURq1whnq-G#scrollTo=15pC4nfQldCA
 # PURPOSE: Helper functions to report results from FUTURES simulation
-#          - reformats metrics dictionary into pandas dataframe
+#          - Reformats metrics dictionary into pandas dataframe
 #          - Plots results as hits, misses and false alarms
 #          - and/or plots results as allocation and quantity disagreement
 ##############################################################################
