@@ -17,3 +17,6 @@ __pycache__/helper_results.cpython-39.pyc
 futures_potential.html
 reclass.txt
 futures_postprocess.html
+futures_demand.html
+futures_pga.html
+futures_preprocess.html
