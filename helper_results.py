@@ -31,15 +31,10 @@ def results_table(metrics):
 
 
 # Function used to plot hits, misses, and false alarms
-# takes Pandas data frame of results as input parameter
-def plot_hit_miss(tab):
-    width = 0.1  # the width of the bars: can also be len(x) sequence
-    plt.style.use("seaborn-v0_8-notebook")
-    # plt.rcParams['axes.prop_cycle'] = plt.cycler(color=plt.cm.GnBu)
-    fig, ax = plt.subplots()
-    cmap = plt.cm.get_cmap("viridis", 5)
+# takes matplotlib axis, Pandas dataframe, and color object as input params
+def plot_hit_miss(ax, tab, cmap):
+    width = 0.1
     ax.set_prop_cycle(color=cmap.colors)
-    fig.set_size_inches(1, 6)
     ax.bar([""], tab["misses"].mean(), width, label="Misses")
     ax.bar(
         [""],
@@ -72,25 +67,19 @@ def plot_hit_miss(tab):
         + tab["null_successes"].mean(),
         label="Initially_developed",
     )
-    ax.text(-0.03, -5, f'{tab["misses"].mean():.2f}%', color="black")
-    ax.text(-0.03, 2.5, f'{tab["false_alarms"].mean():.2f}%', color="black")
-    ax.text(0.06, 3, f'{tab["hits"].mean():.2f}%', color="black")
+    ax.text(-0.03, 1, f'{tab["misses"].mean():.2f}%', color="black")
+    ax.text(-0.03, 4.2, f'{tab["false_alarms"].mean():.2f}%', color="black")
+    ax.text(0.03, 5.3, f'{tab["hits"].mean():.2f}%', color="black")
     ax.text(-0.03, 45, f'{tab["null_successes"].mean():.2f}%', color="black")
-    ax.text(-0.03, 93, f'{tab["initially_developed"].mean():.2f}%', color="black")
-    plt.ylabel("Percent of landscape")
-    plt.legend(loc="center left", bbox_to_anchor=(1, 0.5))
-
-    return plt.show()
+    ax.text(-0.03, 90, f'{tab["initially_developed"].mean():.2f}%', color="black")
+    return ax
 
 
 # Function used to plot quantity and allocation error
-# takes Pandas data frame of results as input parameter
-def plot_quant_alloc_error(tab):
-    width = 0.1  # the width of the bars: can also be len(x) sequence
-
-    fig, ax = plt.subplots()
-    fig.set_size_inches(1, 6)
+# takes matplotlib axis, Pandas dataframe, and color object as input params
+def plot_quant_alloc_error(ax, tab):
     cmap = plt.cm.get_cmap("viridis", 3)
+    width = 0.1
     ax.set_prop_cycle(color=cmap.colors)
     ax.bar([""], tab["quantity_error"].mean(), width, label="Quantity error")
     ax.bar(
@@ -100,13 +89,10 @@ def plot_quant_alloc_error(tab):
         bottom=tab["quantity_error"].mean(),
         label="Allocation error",
     )
-    ax.bar(
-        [""], tab["hits"].mean(), width, bottom=tab["total_error"].mean(), label="Hits"
-    )
+    # ax.bar(
+    #     [""], tab["hits"].mean(), width, bottom=tab["total_error"].mean(), label="Hits"
+    # )
     ax.text(-0.02, 0.5, f'{tab["quantity_error"].mean():.2f}%', color="black")
     ax.text(-0.02, 2.7, f'{tab["allocation_error"].mean():.2f}%', color="black")
-    ax.text(-0.02, 6.4, f'{tab["hits"].mean():.2f}%', color="black")
-    plt.ylabel("Percent of landscape")
-    plt.legend(loc="center left", bbox_to_anchor=(1, 0.5))
-
-    return plt.show()
+    # ax.text(-0.02, 6.4, f'{tab["hits"].mean():.2f}%', color="black")
+    return ax
