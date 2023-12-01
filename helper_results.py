@@ -89,10 +89,6 @@ def plot_quant_alloc_error(ax, tab):
         bottom=tab["quantity_error"].mean(),
         label="Allocation error",
     )
-    # ax.bar(
-    #     [""], tab["hits"].mean(), width, bottom=tab["total_error"].mean(), label="Hits"
-    # )
     ax.text(-0.02, 0.5, f'{tab["quantity_error"].mean():.2f}%', color="black")
     ax.text(-0.02, 2.7, f'{tab["allocation_error"].mean():.2f}%', color="black")
-    # ax.text(-0.02, 6.4, f'{tab["hits"].mean():.2f}%', color="black")
     return ax
